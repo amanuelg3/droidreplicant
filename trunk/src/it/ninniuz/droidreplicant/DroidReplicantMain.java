@@ -51,7 +51,7 @@ public class DroidReplicantMain
 			int returnVal = chooser.showOpenDialog(jf);
 			if (returnVal == JFileChooser.APPROVE_OPTION) 
 			{
-				System.out.println(Messages.getString("DroidControlMain.dialogAdbLocationTitle") + chooser.getSelectedFile().getAbsolutePath()); //$NON-NLS-1$
+				System.out.println("You chose to open this file:" + chooser.getSelectedFile().getAbsolutePath()); //$NON-NLS-1$
 				sAdbLocation = chooser.getSelectedFile().getAbsolutePath();
 				persistAdbLocation(sAdbLocation);
 			}
@@ -78,7 +78,7 @@ public class DroidReplicantMain
 		mInjector.start();
 		
 		jf = new DroidReplicantFrame(this, mDevice, mInjector);
-		jf.setTitle(Messages.getString("DroidControlMain.AppName")); //$NON-NLS-1$
+		jf.setTitle(Messages.getString("DroidReplicantMain.AppName")); //$NON-NLS-1$
 
 		// Show window
 		jf.setVisible(true);

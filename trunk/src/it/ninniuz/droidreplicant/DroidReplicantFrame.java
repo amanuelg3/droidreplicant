@@ -81,9 +81,9 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 	private JPanel mWakeUpPanel;
 
-	public DroidReplicantFrame(DroidReplicantMain droidControlMain, IChimpDevice device, ChimpChatInjector injector) throws IOException 
+	public DroidReplicantFrame(DroidReplicantMain droidreplicantMain, IChimpDevice device, ChimpChatInjector injector) throws IOException 
 	{
-		mControlMain = droidControlMain;
+		mControlMain = droidreplicantMain;
 		
 		mDevice = (DroidReplicantDevice) device;
 		
@@ -156,31 +156,31 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		Container northContainer = new Container();
 		northContainer.setLayout(new GridLayout(1, 4));
 		
-		createAddHardButton(Messages.getString("DroidControlFrame.btnMenu"), new PhysicalButtonMouseListener(PhysicalButton.MENU), northContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_moreoverflow.png"))); //$NON-NLS-1$
-		createAddHardButton(Messages.getString("DroidControlFrame.btnHome"), new PhysicalButtonMouseListener(PhysicalButton.HOME), northContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_home.png"))); //$NON-NLS-1$
-		createAddHardButton(Messages.getString("DroidControlFrame.btnBack"), new PhysicalButtonMouseListener(PhysicalButton.BACK), northContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_back.png"))); //$NON-NLS-1$
-		createAddHardButton(Messages.getString("DroidControlFrame.btnSearch"), new PhysicalButtonMouseListener(PhysicalButton.SEARCH), northContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_search.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnMenu"), new PhysicalButtonMouseListener(PhysicalButton.MENU), northContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_moreoverflow.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnHome"), new PhysicalButtonMouseListener(PhysicalButton.HOME), northContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_home.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnBack"), new PhysicalButtonMouseListener(PhysicalButton.BACK), northContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_back.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnSearch"), new PhysicalButtonMouseListener(PhysicalButton.SEARCH), northContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_search.png"))); //$NON-NLS-1$
 		
 		Container southContainer = new Container();
 		southContainer.setLayout(new GridLayout(1, 3));
 		
-		createAddHardButton(Messages.getString("DroidControlFrame.btnCall"), new AdditionalPhysicalButtonMouseListener(AdditionalPhysicalButton.CALL), southContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_call.png"))); //$NON-NLS-1$
-		createAddHardButton(Messages.getString("DroidControlFrame.btnEndCall"), new AdditionalPhysicalButtonMouseListener(AdditionalPhysicalButton.ENDCALL), southContainer) //$NON-NLS-1$
-		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidcontrol/resources/ic_menu_endcall_small.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnCall"), new AdditionalPhysicalButtonMouseListener(AdditionalPhysicalButton.CALL), southContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_call.png"))); //$NON-NLS-1$
+		createAddHardButton(Messages.getString("DroidReplicantFrame.btnEndCall"), new AdditionalPhysicalButtonMouseListener(AdditionalPhysicalButton.ENDCALL), southContainer) //$NON-NLS-1$
+		.setIcon(new ImageIcon(DroidReplicantFrame.class.getResource("/it/ninniuz/droidreplicant/resources/ic_menu_endcall_small.png"))); //$NON-NLS-1$
 
 		/* */
 		mWakeUpPanel = new JPanel(new GridLayout(1,2));
-		Image errorImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidcontrol/resources/error.png")); //$NON-NLS-1$
-		JLabel wakeUpLabel = new JLabel(Messages.getString("DroidControlFrame.lblScreenOff")); //$NON-NLS-1$
+		Image errorImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidreplicant/resources/error.png")); //$NON-NLS-1$
+		JLabel wakeUpLabel = new JLabel(Messages.getString("DroidReplicantFrame.lblScreenOff")); //$NON-NLS-1$
 		wakeUpLabel.setIcon(new ImageIcon(errorImage));
 		mWakeUpPanel.add(wakeUpLabel);
 		
-		JButton wakeUpButton = new JButton(Messages.getString("DroidControlFrame.lblWakeScreen")); //$NON-NLS-1$
+		JButton wakeUpButton = new JButton(Messages.getString("DroidReplicantFrame.lblWakeScreen")); //$NON-NLS-1$
 		wakeUpButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -198,18 +198,18 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		mHardkeysToolBar.add(southContainer, BorderLayout.SOUTH);
 		mHardkeysToolBar.addAncestorListener(this);
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidcontrol/resources/icon.png"))); //$NON-NLS-1$
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidreplicant/resources/icon.png"))); //$NON-NLS-1$
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
 		
 		/* Recording Panel */
 		mRecordingPanel = new JPanel(new GridLayout(1,2));
-		Image recordImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidcontrol/resources/record_small.png")); //$NON-NLS-1$
-		JLabel recordingLabel = new JLabel(Messages.getString("DroidControlFrame.lblRecordingVideo")); //$NON-NLS-1$
+		Image recordImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/it/ninniuz/droidreplicant/resources/record_small.png")); //$NON-NLS-1$
+		JLabel recordingLabel = new JLabel(Messages.getString("DroidReplicantFrame.lblRecordingVideo")); //$NON-NLS-1$
 		recordingLabel.setIcon(new ImageIcon(recordImage));
 		mRecordingPanel.add(recordingLabel);
 		
-		JButton stopRecordingButton = new JButton(Messages.getString("DroidControlFrame.lblStopRecording")); //$NON-NLS-1$
+		JButton stopRecordingButton = new JButton(Messages.getString("DroidReplicantFrame.lblStopRecording")); //$NON-NLS-1$
 		stopRecordingButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -306,14 +306,14 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 		menuBar = new JMenuBar();
 
-		menu = new JMenu(Messages.getString("DroidControlFrame.menuDevice")); //$NON-NLS-1$
+		menu = new JMenu(Messages.getString("DroidReplicantFrame.menuDevice")); //$NON-NLS-1$
 
 		menu.setMnemonic(KeyEvent.VK_D);
 		menu.getAccessibleContext().setAccessibleDescription( "The only menu in this program that has menu items"); //$NON-NLS-1$
 		menuBar.add(menu);
 
-		mGrabVideoMenuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuGrabVideo")); //$NON-NLS-1$
-		mGrabVideoMenuItem.getAccessibleContext().setAccessibleDescription(Messages.getString("DroidControlFrame.menuGrabVideoAcessibleDescr")); //$NON-NLS-1$
+		mGrabVideoMenuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuGrabVideo")); //$NON-NLS-1$
+		mGrabVideoMenuItem.getAccessibleContext().setAccessibleDescription(Messages.getString("DroidReplicantFrame.menuGrabVideoAcessibleDescr")); //$NON-NLS-1$
 		mGrabVideoMenuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -323,8 +323,8 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu.add(mGrabVideoMenuItem);
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuScreenshot"), KeyEvent.VK_S); //$NON-NLS-1$
-		menuItem.getAccessibleContext().setAccessibleDescription(Messages.getString("DroidControlFrame.menuScreenshotAccessibleDescr")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuScreenshot"), KeyEvent.VK_S); //$NON-NLS-1$
+		menuItem.getAccessibleContext().setAccessibleDescription(Messages.getString("DroidReplicantFrame.menuScreenshotAccessibleDescr")); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -337,7 +337,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		/* Add a separator */
 		menu.addSeparator();
 
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuInstallApp")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuInstallApp")); //$NON-NLS-1$
 		menuItem.getAccessibleContext().setAccessibleDescription("Take a screenshot of the device display"); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
@@ -348,7 +348,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu.add(menuItem);
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuRemoveApp")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuRemoveApp")); //$NON-NLS-1$
 		menuItem.getAccessibleContext().setAccessibleDescription(""); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
@@ -362,7 +362,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		/* Add a separator */
 		menu.addSeparator();
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuWakeup")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuWakeup")); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -373,7 +373,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu.add(menuItem);
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuReboot")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuReboot")); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -384,12 +384,12 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu.add(menuItem);
 
-		menu_1 = new JMenu(Messages.getString("DroidControlFrame.menuActions")); //$NON-NLS-1$
+		menu_1 = new JMenu(Messages.getString("DroidReplicantFrame.menuActions")); //$NON-NLS-1$
 		menu_1.setMnemonic(KeyEvent.VK_A);
 		menu_1.getAccessibleContext().setAccessibleDescription( "The only menu in this program that has menu items"); //$NON-NLS-1$
 		menuBar.add(menu_1);
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuComposeSms")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuComposeSms")); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -400,7 +400,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu_1.add(menuItem);
 		
-		menuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuComposeEmail")); //$NON-NLS-1$
+		menuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuComposeEmail")); //$NON-NLS-1$
 		menuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -414,7 +414,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		/* Add a separator */
 		menu_1.addSeparator();
 		
-		JMenuItem menuExportContactsSD = new JMenuItem(Messages.getString("DroidControlFrame.menuExportContacts")); //$NON-NLS-1$
+		JMenuItem menuExportContactsSD = new JMenuItem(Messages.getString("DroidReplicantFrame.menuExportContacts")); //$NON-NLS-1$
 		menuExportContactsSD.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -424,7 +424,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menu_1.add(menuExportContactsSD);
 		
-		JMenuItem menuFileExplorer = new JMenuItem(Messages.getString("DroidControlFrame.menuExplorer")); //$NON-NLS-1$
+		JMenuItem menuFileExplorer = new JMenuItem(Messages.getString("DroidReplicantFrame.menuExplorer")); //$NON-NLS-1$
 		menuFileExplorer.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -437,10 +437,10 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		/* Add a separator */
 		menu_1.addSeparator();
 		
-		JMenu menuShortcuts = new JMenu(Messages.getString("DroidControlFrame.menuShortcuts")); //$NON-NLS-1$
+		JMenu menuShortcuts = new JMenu(Messages.getString("DroidReplicantFrame.menuShortcuts")); //$NON-NLS-1$
 		menu_1.add(menuShortcuts);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem(Messages.getString("DroidControlFrame.menuWifiSettings")); //$NON-NLS-1$
+		JMenuItem mntmNewMenuItem = new JMenuItem(Messages.getString("DroidReplicantFrame.menuWifiSettings")); //$NON-NLS-1$
 		mntmNewMenuItem.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -450,7 +450,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		});
 		menuShortcuts.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem(Messages.getString("DroidControlFrame.menuAirplaneSettings")); //$NON-NLS-1$
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem(Messages.getString("DroidReplicantFrame.menuAirplaneSettings")); //$NON-NLS-1$
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -511,7 +511,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 								boolean result = task.get();
 								progress.dispose();
 								JOptionPane.showMessageDialog(DroidReplicantFrame.this, result ? 
-										Messages.getString("DroidControlFrame.dialogAppInstalled") : Messages.getString("DroidControlFrame.dialogAppNotInstalled")); //$NON-NLS-1$ //$NON-NLS-2$
+										Messages.getString("DroidReplicantFrame.dialogAppInstalled") : Messages.getString("DroidReplicantFrame.dialogAppNotInstalled")); //$NON-NLS-1$ //$NON-NLS-2$
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -530,7 +530,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 	protected void reboot() {
 		
-		switch (JOptionPane.showConfirmDialog(this, Messages.getString("DroidControlFrame.dialogRebootConfirm"), Messages.getString("DroidControlFrame.dialogRebootTitle"), JOptionPane.OK_CANCEL_OPTION)) { //$NON-NLS-1$ //$NON-NLS-2$
+		switch (JOptionPane.showConfirmDialog(this, Messages.getString("DroidReplicantFrame.dialogRebootConfirm"), Messages.getString("DroidReplicantFrame.dialogRebootTitle"), JOptionPane.OK_CANCEL_OPTION)) { //$NON-NLS-1$ //$NON-NLS-2$
 		case JOptionPane.YES_OPTION:
 			mDevice.reboot(""); //$NON-NLS-1$
 			break;
