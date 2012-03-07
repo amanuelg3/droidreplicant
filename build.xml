@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DroidReplicant" default="dist" basedir=".">
+	<description>DroidReplicant build file</description>
+	
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+	<property name="dist"  location="dist"/>
+	<property file="droidreplicant.config" />
+	<property name="android.libs.dir" location="${android.sdk.dir}/tools/lib" />
+	<property name="chimpchat.jar.location" location="${android.libs.dir}/chimpchat.jar"/>
+	<property name="ddmlib.jar.location" location="${android.libs.dir}/ddmlib.jar"/>
+	<property name="guavalib.jar.location" location="${android.libs.dir}/guavalib.jar"/>
+	<property name="project.images.package" value="it/ninniuz/droidreplicant/resources" />
+	<property name="project.localization.package" value="it/ninniuz/droidreplicant" />
+	
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+    	<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source " >
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" 
+			classpath="${chimpchat.jar.location}:${ddmlib.jar.location}:${guavalib.jar.location}" />
+	</target>
+
+	<target name="dist" depends="compile" description="Generate the distribution" >
+		<jar jarfile="${dist}/${ant.project.name}-${DSTAMP}.jar" basedir="${build}" update="true">
+			<manifest>
+				<attribute name="Main-Class" value="it.ninniuz.droidreplicant.DroidReplicantMain"/>
+			</manifest>
+	        <fileset dir="${src}">
+	            <include name="${project.images.package}/*.png" />
+	            <include name="${project.localization.package}/messages*.properties" />
+	        </fileset>
+    	</jar>
+	</target>
+
+	<target name="clean" description="Clean up" >
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>

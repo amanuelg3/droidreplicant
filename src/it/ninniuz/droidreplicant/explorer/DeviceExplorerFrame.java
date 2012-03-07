@@ -83,7 +83,7 @@ public class DeviceExplorerFrame extends JFrame {
 				pushIntoSelection();
 			}
 		});
-		btnPush.setIcon(new ImageIcon(DeviceExplorerFrame.class.getResource("/it/ninniuz/droidcontrol/resources/push.png"))); //$NON-NLS-1$
+		btnPush.setIcon(new ImageIcon(DeviceExplorerFrame.class.getResource("/it/ninniuz/droidreplicant/resources/push.png"))); //$NON-NLS-1$
 		btnPush.setEnabled(false);
 		toolBar.add(btnPush);
 		
@@ -95,7 +95,7 @@ public class DeviceExplorerFrame extends JFrame {
 				pullSelection();
 			}
 		});
-		btnPull.setIcon(new ImageIcon(DeviceExplorerFrame.class.getResource("/it/ninniuz/droidcontrol/resources/pull.png"))); //$NON-NLS-1$
+		btnPull.setIcon(new ImageIcon(DeviceExplorerFrame.class.getResource("/it/ninniuz/droidreplicant/resources/pull.png"))); //$NON-NLS-1$
 		btnPull.setEnabled(false);
 		toolBar.add(btnPull);
 		
