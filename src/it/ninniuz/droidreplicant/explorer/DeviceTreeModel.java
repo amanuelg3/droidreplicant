@@ -52,13 +52,13 @@ public class DeviceTreeModel implements TreeModel {
 
 	@Override
 	public Object getChild(Object parent, int index) {
-		// TODO Auto-generated method stub
+
 		return getChildren(parent)[index];
 	}
 
 	@Override
 	public int getChildCount(Object parent) {
-		// TODO Auto-generated method stub
+
 		return getChildren(parent).length;
 	}
 
@@ -75,19 +75,18 @@ public class DeviceTreeModel implements TreeModel {
 
 	@Override
 	public void valueForPathChanged(TreePath path, Object newValue) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public int getIndexOfChild(Object parent, Object child) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public void addTreeModelListener(TreeModelListener l) {
-		// TODO Auto-generated method stub
+
 		synchronized (mTreeModelListeners) {
 			mTreeModelListeners.add(l);
 		}
@@ -95,7 +94,7 @@ public class DeviceTreeModel implements TreeModel {
 
 	@Override
 	public void removeTreeModelListener(TreeModelListener l) {
-		// TODO Auto-generated method stub
+
 		synchronized (mTreeModelListeners) {
 			mTreeModelListeners.remove(l);
 		}

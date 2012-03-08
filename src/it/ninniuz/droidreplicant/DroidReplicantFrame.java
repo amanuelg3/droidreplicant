@@ -367,7 +367,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+
 				wakeUp();
 			}
 		});
@@ -378,7 +378,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+
 				reboot();
 			}
 		});
@@ -394,7 +394,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+
 				composeSms();
 			}
 		});
@@ -405,7 +405,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+
 				composeEmail();
 			}
 		});
@@ -513,10 +513,10 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 								JOptionPane.showMessageDialog(DroidReplicantFrame.this, result ? 
 										Messages.getString("DroidReplicantFrame.dialogAppInstalled") : Messages.getString("DroidReplicantFrame.dialogAppNotInstalled")); //$NON-NLS-1$ //$NON-NLS-2$
 							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							} catch (ExecutionException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
@@ -556,40 +556,23 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		prefs.put(prefKey, path);
 	}
 
-//	public class KbActionListener implements ActionListener 
-//	{
-//		int key;
-//
-//		public KbActionListener(int key) {
-//			this.key = key;
-//		}
-//
-//		public void actionPerformed(ActionEvent e) {
-//			if (mInjector != null) {
-//				mInjector.injectKeycode(ConstEvtKey.ACTION_DOWN, key);
-//				mInjector.injectKeycode(ConstEvtKey.ACTION_UP, key);
-//			}
-//		}
-//	}
-
 	public class PhysicalButtonMouseListener implements MouseListener
 	{
 		PhysicalButton button;
 
 		public PhysicalButtonMouseListener(PhysicalButton b) {
-			// TODO Auto-generated constructor stub
+			 
 			this.button = b;
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+
 			if (mInjector == null)
 				return;
 
@@ -598,7 +581,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+
 			if (mInjector == null)
 				return;
 
@@ -607,13 +590,11 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 	}
@@ -623,19 +604,18 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 		AdditionalPhysicalButton button;
 
 		public AdditionalPhysicalButtonMouseListener(AdditionalPhysicalButton b) {
-			// TODO Auto-generated constructor stub
+
 			this.button = b;
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+
 			if (mInjector == null)
 				return;
 
@@ -644,7 +624,7 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+
 			if (mInjector == null)
 				return;
 
@@ -653,53 +633,14 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 	}
-
-//	public class KbMouseListener implements MouseListener 
-//	{
-//		int key;
-//
-//		public KbMouseListener(int key) {
-//			this.key = key;
-//		}
-//
-//		public void mouseClicked(MouseEvent e) {
-//			return;
-//		}
-//
-//		public void mouseEntered(MouseEvent e) {
-//			return;
-//		}
-//
-//		public void mouseExited(MouseEvent e) {
-//			return;
-//		}
-//
-//		public void mousePressed(MouseEvent e) 
-//		{
-//			if (mInjector == null)
-//				return;
-//
-//			mInjector.injectKeycode(ConstEvtKey.ACTION_DOWN, key);			
-//		}
-//
-//		public void mouseReleased(MouseEvent e) 
-//		{
-//			if (mInjector == null)
-//				return;
-//
-//			mInjector.injectKeycode(ConstEvtKey.ACTION_UP, key);
-//		}
-//	}
 
 	public void setInjector(ChimpChatInjector injector) 
 	{
@@ -734,13 +675,8 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 	
 	@Override
 	public void screenStatus(boolean isOn) {
-		// TODO Auto-generated method stub
-		if (isOn) {
-			hideWakeupPanel();
-		}
-		else {
-			showWakeupPanel();
-		}
+
+		showWakeupPanel(!isOn);
 	}
 
 	private void startRecording() 
@@ -758,44 +694,27 @@ public class DroidReplicantFrame extends JFrame implements AncestorListener, ISc
 			mInjector.getScreencapture().startRecording(jFileChooser.getSelectedFile());
 			persistPath(VIDEO_DIR_PREF_KEY, jFileChooser.getSelectedFile().getParent());
 			mIsVideoRecording = true;
-			showRecordingPanel();
+			showRecordingPanel(true);
 		}
 	}
 	
-	private void showWakeupPanel() {
+	private void showWakeupPanel(boolean show) {
 		
-		mWakeUpPanel.setVisible(true);
+		mWakeUpPanel.setVisible(show);
 		pack();
 	}
 
-
-	private void hideWakeupPanel() {
+	private void showRecordingPanel(boolean show) {
 		
-		mWakeUpPanel.setVisible(false);
-		pack();
-	}
-
-	private void showRecordingPanel() {
-		
-		mRecordingPanel.setVisible(true);
-		mGrabVideoMenuItem.setEnabled(false);
-		pack();
-	}
-
-
-	private void hideRecordingPanel() {
-		
-		mRecordingPanel.setVisible(false);
-		mGrabVideoMenuItem.setEnabled(true);
+		mRecordingPanel.setVisible(show);
+		mGrabVideoMenuItem.setEnabled(!show);
 		pack();
 	}
 	
 	private void stopRecording() 
 	{
 		mIsVideoRecording = false;
-		
-		hideRecordingPanel();
-		
+		showRecordingPanel(false);		
 		mInjector.getScreencapture().stopRecording();
 	}
 

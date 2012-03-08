@@ -51,7 +51,7 @@ public class DroidReplicantDevice implements IChimpDevice {
 			IDevice ddmsDevice = (IDevice) fieldDevice.get(mAdbChimpDevice);
 			mDdmsDevice = ddmsDevice;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			mDdmsDevice = null;
 		}
@@ -124,26 +124,6 @@ public class DroidReplicantDevice implements IChimpDevice {
 		
 		final StartActivityTask task = new StartActivityTask(this, null, action, null, null, null, null, component, 0);
 		task.execute();
-//		
-//		task.addPropertyChangeListener(new PropertyChangeListener() {
-//			
-//			@Override
-//			public void propertyChange(PropertyChangeEvent evt) {
-//				if ("progress".equals(evt.getPropertyName())) { //$NON-NLS-1$
-//					if (task.getProgress() == 100) {
-//						try {
-//							// result = task.get();
-//						} catch (InterruptedException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						} catch (ExecutionException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//			}
-//		});
 		
 		return task;
 	}
@@ -285,19 +265,19 @@ public class DroidReplicantDevice implements IChimpDevice {
 		try {
 			mDdmsDevice.executeShellCommand(shellCmd, receiver);
 		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return false;
 		} catch (AdbCommandRejectedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return false;
 		} catch (ShellCommandUnresponsiveException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return false;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return false;
 		}

@@ -75,7 +75,7 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 
 	@Override
 	public void startRecording(File f) {
-		// TODO Auto-generated method stub
+
 		try {
 			if(!f.getName().toLowerCase().endsWith(".mov")) { //$NON-NLS-1$
 				f = new File(f.getAbsolutePath() + ".mov"); //$NON-NLS-1$
@@ -90,7 +90,7 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 
 	@Override
 	public void stopRecording() {
-		// TODO Auto-generated method stub
+
 		try {
 			QuickTimeOutputStream o = qos;
 			qos = null;
@@ -109,7 +109,6 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 
 	@Override
 	public void toogleOrientation() {
-		// TODO Auto-generated method stub
 
 	}
 	
@@ -289,7 +288,6 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 
 		mDisplayStatusDetector.start();
 		
-		// TODO Auto-generated method stub
 		do {
 			try {
 				
@@ -351,7 +349,7 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 	 */
 	@Override
 	public void interrupt() {
-		// TODO Auto-generated method stub
+
 		super.interrupt();
 		mDisplayStatusDetector.interrupt();
 	}
