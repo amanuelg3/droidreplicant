@@ -148,10 +148,9 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 		
 		try {
 			if (qos != null && mScreenOn) {
-				// We need to call resizeImage here to convert the image to RGB with a default color space
+				// We need to call convertToRGB here to convert the image to RGB with a default color space
 				// since otherwise the ImageIO plugin will complain about a bogus input colorspace
-				// TODO: add another function with a proper name
-				qos.writeFrame(resizeImage(image, image.getWidth(), image.getHeight()), 10);
+				qos.writeFrame(convertToRGB(image), 10);
 			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -258,6 +257,22 @@ public class ChimpChatScreenCaptureThread extends Thread implements ScreenCaptur
 		Graphics2D graphics2D = scaledImage.createGraphics();
 		graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 		graphics2D.drawImage(image, 0, 0, width, height, null);
+
+		// clean up
+		graphics2D.dispose();
+		
+		return scaledImage;
+	}
+	
+	private BufferedImage convertToRGB(BufferedImage image) 
+	{
+		// Create new (blank) image
+		BufferedImage scaledImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+		// Paint scaled version of image to new image
+		Graphics2D graphics2D = scaledImage.createGraphics();
+		graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		graphics2D.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
 
 		// clean up
 		graphics2D.dispose();
