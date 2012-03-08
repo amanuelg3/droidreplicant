@@ -37,7 +37,8 @@ public class DroidReplicantMain
 	}
 
 	private void init() throws IOException 
-	{			
+	{
+		
 		TreeMap<String, String> options = new TreeMap<String, String>();
 		options.put("backend", "adb"); //$NON-NLS-1$ //$NON-NLS-2$
 
