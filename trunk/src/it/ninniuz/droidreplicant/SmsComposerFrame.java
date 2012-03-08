@@ -31,22 +31,6 @@ public class SmsComposerFrame extends JFrame {
 	private JTextField phoneTextField;
 	private IChimpDevice mDevice;
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					SmsComposerFrame frame = new SmsComposerFrame();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -150,14 +134,12 @@ public class SmsComposerFrame extends JFrame {
 	}
 	
 	private void composeSmsOnDevice(String phoneNumber, String smsText) {
-		// TODO Auto-generated method stub
+
 		Map<String, Object> extras = new HashMap<String, Object>();
-		if (smsText.trim().length() > 0)
+		if (smsText.trim().length() > 0) {
 			extras.put("sms_body", smsText); //$NON-NLS-1$
-		// extras.put("address", phoneNumber);
+		}
 		
 		new StartActivityTask(mDevice, null, "android.intent.action.VIEW", "sms:" + phoneNumber, null, new ArrayList<String>(), extras, null, 0).execute(); //$NON-NLS-1$ //$NON-NLS-2$
-		
-//		mDevice.startActivity(null, "android.intent.action.VIEW", "sms:", null, new ArrayList<String>(), extras, null, 0);
 	}
 }

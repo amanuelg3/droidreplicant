@@ -145,7 +145,7 @@ public class EmailComposerFrame extends JFrame {
 	}
 
 	public EmailComposerFrame(IChimpDevice mDevice) {
-		// TODO Auto-generated constructor stub
+
 		this();
 		this.mDevice = mDevice;
 	}

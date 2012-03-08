@@ -44,7 +44,7 @@ public class DeviceExplorerFrame extends JFrame {
 	private class DroidTree extends JTree {
 
 		public DroidTree(DeviceTreeModel deviceTreeModel) {
-			// TODO Auto-generated constructor stub
+			
 			super(deviceTreeModel);
 		}
 
@@ -54,7 +54,7 @@ public class DeviceExplorerFrame extends JFrame {
 		@Override
 		public String convertValueToText(Object value, boolean selected,
 				boolean expanded, boolean leaf, int row, boolean hasFocus) {
-			// TODO Auto-generated method stub
+
 			FileEntry entry = (FileEntry) value;
 			return entry.getName();
 		}
@@ -150,21 +150,6 @@ public class DeviceExplorerFrame extends JFrame {
 				nodeDetailsScrollPane.repaint();
 			}
 		});
-		
-//		long now = System.currentTimeMillis();
-//		try {
-//			mCurrentDevice.getScreenshot();
-//		} catch (TimeoutException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (AdbCommandRejectedException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (IOException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		Log.e("take screenshot", "" + (System.currentTimeMillis() - now));
 	}
 	
     protected FileDetailsContainer getFileDetailsContainer(FileEntry selectedNode) {
